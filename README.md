@@ -65,10 +65,10 @@ To build the image execute the following command:
 	docker build -t ctakes-4.0.0 .
 ```
 
-The image is also available in the EC2 repository: 
+The image is also available in the EC2 repository, you can download it executing the following command, so you do not have to build it: 
 
 ```bash
-	docker pull 
+	docker pull 170372878108.dkr.ecr.us-east-2.amazonaws.com/ctakes-4.0.0:latest
 ```
 
 **Run pipeline**
@@ -76,7 +76,7 @@ The image is also available in the EC2 repository:
 Run the container:   
    
 ```bash
-	docker run -ti ctakes-4.0.0 bash
+	docker run -ti 170372878108.dkr.ecr.us-east-2.amazonaws.com/ctakes-4.0.0:latest bash
 ```
 
 Once you are inside the container export the following variables    

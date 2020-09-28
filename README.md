@@ -125,8 +125,8 @@ docker cp data/101.xml {CONTAINER_ID}:/input/
 4. Export variables
 
 ```bash
-	export CTAKES_USER=anthfb
-	export CTAKES_PASS=TopTier2011
+	export CTAKES_USER=user
+	export CTAKES_PASS=password
 	export CTAKES_HOME=/apache-ctakes
 ```
 

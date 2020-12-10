@@ -87,6 +87,13 @@ Once you are inside the container export the following variables
 	export CTAKES_HOME=/apache-ctakes
 ```
 
+Or if you build it, you can edit the `env.list` file, displaying your username and password, and run the container including the environment variables file as:
+
+```bash
+  docker run -ti --env-file ./env.list ctakes-4.0.0:latest bash
+```
+
+
 It is ready!, now you have a container with ctakes installed, you can start using it. 
 
 Execute the pipeline: 
@@ -122,7 +129,7 @@ docker ps -a
 docker cp data/101.xml {CONTAINER_ID}:/input/
 ```
 
-4. Export variables
+4. Export variables only if you didn't run the container including the `env.list` file
 
 ```bash
 	export CTAKES_USER=user

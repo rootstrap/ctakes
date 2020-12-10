@@ -1,6 +1,6 @@
 FROM java:8
 
-RUN mkdir /apache-ctakes
+RUN mkdir apache-ctakes input output
 
 ADD https://downloads.apache.org//ctakes/ctakes-4.0.0/apache-ctakes-4.0.0-bin.tar.gz /
 RUN tar -xzf /apache-ctakes-4.0.0-bin.tar.gz

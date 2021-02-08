@@ -63,7 +63,7 @@ This tutorial is based on the [cTAKES wiki](https://cwiki.apache.org/confluence/
 Run the container including the environment variable CTAKES_KEY, a volume for the input files and a volume for the output files 
 
 ```bash
-  docker run -ti --env CTAKES_KEY={key} -v $(pwd)/input:/input $(pwd)/output:/output rootstrap/ctakes-4.0.0.1:latest 
+  docker run -ti --env CTAKES_KEY={key} -v $(pwd)/input:/input -v $(pwd)/output:/output rootstrap/ctakes-4.0.0.1:latest 
 ```
 
 **Update image** 

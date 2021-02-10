@@ -28,35 +28,10 @@ It has different functionalities:
 The [Default Clinical Pipeline](https://cwiki.apache.org/confluence/display/CTAKES/Default+Clinical+Pipeline) produces the most commonly desired output from cTAKES. You only need to run a bash script, setting the input and output directories. 
 
 You can create your own pipeline and edit the code of the componentes of the pipeline in order to improve the extraction according to your data or type of problem. 
-
-## Manual Installation 
-You can install cTAKES manually or you can use the Docker provided in the following section. Here are the steps to execute if you want to install cTAKES manually:    
-
-1. Prerequisites: java8 
-2. Download ctakes - user installation from: [http://ctakes.apache.org/downloads.html](http://ctakes.apache.org/downloads.html)    
-3. Download also both dictionaries from  [http://ctakes.apache.org/downloads.html](http://ctakes.apache.org/downloads.html)      
-4. Create user in [https://uts.nlm.nih.gov/license.html](https://uts.nlm.nih.gov/license.html)
-5. Copy the API key
-
-6. Copy dictionary files content:       
-```bash
-	cp -r ctakes-resources-4.0/resources/org/apache/ctakes/dictionary/lookup/*  /apache-ctakes/resources/org/apache/ctakes/dictionary/lookup/
-```
-
-7. Copy xml file to fast folder:    
  
-```bash
-	cp resources/org/apache/ctakes/dictionary/lookup/fast/sno_rx_16ab/sno_rx_16ab.xml  resources/org/apache/ctakes/dictionary/lookup/fast/
-```
+## Running the docker container
 
-8. Run clinical pipeline:
-```bash
-	/apache-ctakes/bin/runClinicalPipeline.sh 
-```
-
-This tutorial is based on the [cTAKES wiki](https://cwiki.apache.org/confluence/display/CTAKES/cTAKES+3.2+User+Install+Guide#cTAKES3.2UserInstallGuide-Prerequisites)
-
-## Docker
+**Create user** at [https://uts.nlm.nih.gov/license.html](https://uts.nlm.nih.gov/license.html) and copy the API key
 
 **Run the container:**   
 
@@ -65,9 +40,13 @@ Run the container including the environment variable CTAKES_KEY, a volume for th
 ```bash
   docker run -ti --env CTAKES_KEY={key} -v $(pwd)/input:/input -v $(pwd)/output:/output rootstrap/ctakes:latest 
 ```
-The results files will be at output directory.
+The results files will be at output directory.  
 
 ## Example
 You can use [XML Viewer](https://jsonformatter.org/xml-viewer) to inspect the result files. 
 
 ![](images/image_output.png)
+
+## Observation
+- cTAKES can be downloaded from  [http://ctakes.apache.org/downloads.html](http://ctakes.apache.org/downloads.html)    
+- The dictionaries can be downloaded from [http://ctakes.apache.org/downloads.html](http://ctakes.apache.org/downloads.html)      

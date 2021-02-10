@@ -63,54 +63,11 @@ This tutorial is based on the [cTAKES wiki](https://cwiki.apache.org/confluence/
 Run the container including the environment variable CTAKES_KEY, a volume for the input files and a volume for the output files 
 
 ```bash
-  docker run -ti --env CTAKES_KEY={key} -v $(pwd)/input:/input -v $(pwd)/output:/output rootstrap/ctakes-4.0.0.1:latest 
+  docker run -ti --env CTAKES_KEY={key} -v $(pwd)/input:/input -v $(pwd)/output:/output rootstrap/ctakes:latest 
 ```
+The results files will be at output directory.
 
-**Update image** 
-If you want to update the image, do the necessary updates in the Dockerfile, build the image and push it to the repository with the disered tag. 
-
-```bash
-docker build -t ctakes-4.0.0.1 . 
-docker tag  ctakes-4.0.0.1 rootstrap/ctakes-4.0.0.1:$TAG
-docker tag  ctakes-4.0.0.1 rootstrap/ctakes-4.0.0.1:latest
-
-docker push rootstrap/ctakes-4.0.0.1:$TAG
-docker push rootstrap/ctakes-4.0.0.1:latest
-```
-## Proof of concept
-
-1. Create input and output directories    
-2. Get container id:   
-
-```bash
-docker ps -a 
-```
-
-3. Copy file to input directory    
-
-```bash
-docker cp data/101.xml {CONTAINER_ID}:/input/
-```
-
-4. Export variables only if you didn't run the container including the `env.list` file
-
-```bash
-	export CTAKES_USER=user
-	export CTAKES_PASS=password
-	export CTAKES_HOME=/apache-ctakes
-```
-
-5. Execute pipeline
-```bash
-	 /apache-ctakes/bin/runClinicalPipeline.sh  --user $CTAKES_USER --pass $CTAKES_PASS  -i /input  --xmiOut /output
-```
-
-6. Processed files will be at the output directory 
-```bash
-	 docker cp {DOCKER_ID}:/output/101.xml.xmi output/
-```
-In this case, the file is available in output/101.xml.xmi in the current directory. 
-
-7. Inspect file content with a [XML Viewer](https://jsonformatter.org/xml-viewer)
+## Example
+You can use [XML Viewer](https://jsonformatter.org/xml-viewer) to inspect the result files. 
 
 ![](images/image_output.png)

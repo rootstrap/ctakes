@@ -33,12 +33,19 @@ You can create your own pipeline and edit the code of the componentes of the pip
 
 **Create user** at [https://uts.nlm.nih.gov/license.html](https://uts.nlm.nih.gov/license.html) and copy the API key
 
+
+**Build the container:**
+
+```bash
+   docker build --build-arg ctakes_key={KEY} --rm -t rootstrap/ctakes:latest .
+```
+
 **Run the container:**   
 
 Run the container including the environment variable CTAKES_KEY, a volume for the input files and a volume for the output files 
 
 ```bash
-  docker run -ti --env CTAKES_KEY={key} -v $(pwd)/input:/input -v $(pwd)/output:/output rootstrap/ctakes:latest 
+  docker run -ti -v $(pwd)/input:/input -v $(pwd)/output:/output rootstrap/ctakes:latest 
 ```
 The results files will be at output directory.  
 

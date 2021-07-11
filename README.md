@@ -42,10 +42,10 @@ You can create your own pipeline and edit the code of the componentes of the pip
 
 **Run the container:**   
 
-Run the container including the environment variable CTAKES_KEY, a volume for the input files and a volume for the output files 
+Run the container including the environment variables CTAKES_KEY, INPUT_DIR and OUTPUT_DIR a volume for the input files and a volume for the output files 
 
 ```bash
-  docker run -ti -v $(pwd)/input:/input -v $(pwd)/output:/output rootstrap/ctakes:latest 
+  docker run -ti --env CTAKES_KEY={KEY} --env INPUT_DIR=/input --env OUTPUT_DIR=/output -v $(pwd)/input:/input -v $(pwd)/output:/output rootstrap/ctakes:latest
 ```
 The results files will be at output directory.  
 

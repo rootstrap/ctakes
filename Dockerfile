@@ -1,7 +1,5 @@
 FROM java:8
 
-ARG ctakes_key
-
 RUN mkdir apache-ctakes input output
 
 RUN wget -r -O /apache-ctakes-4.0.0.1-bin.tar.gz https://espejito.fder.edu.uy/apache//ctakes/ctakes-4.0.0.1/apache-ctakes-4.0.0.1-bin.tar.gz && \
@@ -33,7 +31,6 @@ COPY run.sh /apache-ctakes/bin/run.sh
 RUN chmod +x /apache-ctakes/ctakes-distribution/src/main/bin/runClinicalPipeline.sh
 
 ENV CTAKES_HOME=apache-ctakes
-ENV CTAKES_KEY=$ctakes_key
 
 WORKDIR /
 
